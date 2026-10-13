@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="StyleCart — a modern fashion store frontend demo." />
+  <title>StyleCart | Everyday Style</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="announcement">FREE SHIPPING ON ORDERS OVER ₹1,999 <span>✦</span> EASY 7-DAY RETURNS</div>
+  <header class="site-header">
+    <a class="logo" href="#" aria-label="StyleCart home">style<span>cart.</span></a>
+    <nav class="desktop-nav" aria-label="Main navigation">
+      <a href="#shop" data-nav-category="All">Shop all</a>
+      <a href="#shop" data-nav-category="Men">Men</a>
+      <a href="#shop" data-nav-category="Women">Women</a>
+      <a href="#shop" data-nav-category="Accessories">Accessories</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-button" id="search-toggle" aria-label="Focus search">⌕</button>
+      <button class="icon-button" id="wishlist-open" aria-label="Open wishlist">♡ <span class="tiny-count" id="wishlist-count">0</span></button>
+      <button class="icon-button cart-trigger" id="cart-open" aria-label="Open cart">Bag <span class="count" id="cart-count">0</span></button>
+      <button class="icon-button mobile-menu" id="mobile-menu" aria-label="Open menu">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">THE NEW EVERYDAY</p>
+        <h1>Good style.<br><em>No effort.</em></h1>
+        <p class="hero-text">Thoughtful essentials for wherever your day takes you. Find your new favourites.</p>
+        <a class="primary-button" href="#shop">Shop the collection <span>↗</span></a>
+        <div class="hero-note"><span class="avatars">● ● ●</span> Loved by 12,000+ style people</div>
+      </div>
+      <div class="hero-art">
+        <div class="hero-image" role="img" aria-label="Fashion editorial with neutral clothing"></div>
+        <div class="floating-tag"><span>NEW SEASON</span><strong>Made to move.</strong></div>
+        <div class="hero-stamp">STYLE<br>YOUR<br>STORY</div>
+      </div>
+    </section>
+
+    <section class="benefits" aria-label="Store benefits">
+      <div><span>✳</span><strong>Quality first</strong><small>Made for real life</small></div>
+      <div><span>↗</span><strong>Easy returns</strong><small>7 days, no stress</small></div>
+      <div><span>♧</span><strong>Conscious choices</strong><small>Better everyday basics</small></div>
+      <div><span>♡</span><strong>Made for you</strong><small>Style without rules</small></div>
+    </section>
+
+    <section class="shop-section" id="shop">
+      <div class="section-heading">
+        <div><p class="eyebrow">CURATED FOR YOU</p><h2>Find your <em>fit.</em></h2></div>
+        <p class="muted">Everyday pieces. Extraordinary feeling.</p>
+      </div>
+      <div class="shop-controls">
+        <div class="category-tabs" id="category-tabs">
+          <button class="tab active" data-category="All">All pieces <span>12</span></button>
+          <button class="tab" data-category="Women">Women</button>
+          <button class="tab" data-category="Men">Men</button>
+          <button class="tab" data-category="Accessories">Accessories</button>
+        </div>
+        <div class="filters">
+          <label class="search-box"><span>⌕</span><input id="search-input" type="search" placeholder="Search pieces..." aria-label="Search products"></label>
+          <select id="sort-select" aria-label="Sort products">
+            <option value="featured">Sort: Featured</option>
+            <option value="low">Price: Low to high</option>
+            <option value="high">Price: High to low</option>
+            <option value="name">Name: A to Z</option>
+          </select>
+        </div>
+      </div>
+      <div class="active-filter-row"><p id="results-label">Showing all 12 pieces</p><button id="clear-filters" class="text-button">Clear filters ↺</button></div>
+      <div class="product-grid" id="product-grid"></div>
+      <div class="empty-state hidden" id="empty-state"><div>⌕</div><h3>No pieces found</h3><p>Try another search or clear your filters.</p><button class="primary-button" id="empty-reset">Show all pieces</button></div>
+    </section>
+
+    <section class="editorial">
+      <div class="editorial-photo"></div>
+      <div class="editorial-copy"><p class="eyebrow">LESS, BUT BETTER</p><h2>Pieces you'll<br><em>wear on repeat.</em></h2><p>We believe getting dressed should feel easy. So we make versatile, feel-good pieces that work hard in your wardrobe.</p><a href="#shop" class="underlined-link">Discover your staples <span>↗</span></a></div>
+    </section>
+
+    <section class="newsletter">
+      <p class="eyebrow">A LITTLE GOOD NEWS</p><h2>Good things, <em>in your inbox.</em></h2><p>Get first dibs on new drops, styling tips, and 10% off your first order.</p>
+      <form id="newsletter-form" class="newsletter-form"><input id="email-input" type="email" placeholder="Your email address" aria-label="Email address" required><button type="submit">Sign me up ↗</button></form>
+      <p id="newsletter-message" class="form-message" aria-live="polite"></p>
+    </section>
+  </main>
+
+  <footer class="footer"><a class="logo" href="#">style<span>cart.</span></a><p>Good style, made simple.</p><div><a href="#shop">Shop</a><a href="#shop">Our story</a><a href="mailto:hello@stylecart.example">Contact</a></div><small>© 2026 StyleCart Demo. Frontend practice project.</small></footer>
+
+  <div class="overlay hidden" id="overlay"></div>
+  <aside class="side-drawer" id="cart-drawer" aria-label="Shopping bag" aria-hidden="true">
+    <div class="drawer-header"><div><p class="eyebrow">YOUR SELECTION</p><h2>Your bag <span id="drawer-count">(0)</span></h2></div><button class="close-button" data-close aria-label="Close bag">×</button></div>
+    <div class="drawer-content" id="cart-items"></div>
+    <div class="drawer-footer"><div class="subtotal"><span>Subtotal</span><strong id="cart-subtotal">₹0</strong></div><p>Shipping and taxes calculated at checkout.</p><button class="primary-button full-width" id="checkout-button">Continue to checkout <span>↗</span></button><button class="text-button continue-shopping" data-close>Continue shopping</button></div>
+  </aside>
+
+  <aside class="side-drawer" id="wishlist-drawer" aria-label="Wishlist" aria-hidden="true">
+    <div class="drawer-header"><div><p class="eyebrow">SAVED FOR LATER</p><h2>Your wishlist <span id="wish-drawer-count">(0)</span></h2></div><button class="close-button" data-close aria-label="Close wishlist">×</button></div>
+    <div class="drawer-content" id="wishlist-items"></div>
+  </aside>
+
+  <div class="modal-wrap hidden" id="product-modal" role="dialog" aria-modal="true" aria-label="Product details">
+    <div class="modal-backdrop" data-modal-close></div><div class="product-modal-content" id="product-modal-content"></div>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
